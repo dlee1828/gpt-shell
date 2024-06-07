@@ -1,0 +1,4 @@
+#!/bin/bash
+source $(dirname "$0")/openai-env/bin/activate
+python3 $(dirname "$0")/main.py "$*"
+deactivate

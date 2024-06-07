@@ -1,10 +1,13 @@
-Usage: 
+## Usage
+
+To quickly ask something:
 ```
 ask [prompt]
-```
-To quickly ask something. When used this way, the prompt can't have special characters or be multiple lines.
+``` 
+When used this way, the prompt can't have special characters or be multiple lines.
 
+
+To enter a multi-line prompt which can have special characters:
 ```
 ask [press enter]
 ```
-To enter a multi-line prompt which can have special characters. 

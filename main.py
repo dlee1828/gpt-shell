@@ -11,6 +11,7 @@ def get_question(instruct = False):
 
   while prompt.strip() == "":
     if instruct: 
+      print("-----")
       print("Enter text, then press Enter and Ctrl-D to send. Send \"exit\" to end the conversation.") 
       print("-----")
     prompt = sys.stdin.read()

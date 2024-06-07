@@ -6,15 +6,16 @@ client = OpenAI()
 from rich.console import Console
 from rich.markdown import Markdown
 
-def run():
-  if len(sys.argv) < 2:
-    print("Please enter a prompt.")
-    return
+def request_prompt():
+  print("Enter your request, then press Ctrl-D (EOF) to submit.") 
+  prompt = sys.stdin.read()
+  print("Processing...")
+  return prompt
 
-  prompt = ' '.join(sys.argv[1:])
-  if prompt.strip() == "":
-    print("Please enter a prompt.")
-    return
+def run():
+  prompt = ""
+  while prompt.strip() == "":
+    prompt = request_prompt()
 
   completion = client.chat.completions.create(
     model="gpt-3.5-turbo",

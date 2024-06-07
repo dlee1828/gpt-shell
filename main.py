@@ -6,6 +6,8 @@ client = OpenAI()
 from rich.console import Console
 from rich.markdown import Markdown
 
+MESSAGE_HISTORY_LIMIT = 10
+
 def get_question(instruct = False):
   prompt = ""
 
@@ -19,11 +21,17 @@ def get_question(instruct = False):
   print("-----")
   return prompt
 
+def get_system_message():
+  return {"role": "system", "content": "If you ever write code, make sure it is enclosed in triple backticks."}
+
 # Gets answer, also updates messages 
 def get_answer(messages: list[str]) -> str:
+  if len(messages) > MESSAGE_HISTORY_LIMIT:
+    messages = messages[-MESSAGE_HISTORY_LIMIT:]
+
   completion = client.chat.completions.create(
     model="gpt-3.5-turbo",
-    messages=messages
+    messages=[get_system_message()] + messages
   )
   answer_message = completion.choices[0].message
   messages.append(answer_message)
@@ -40,7 +48,6 @@ def conversation():
       question = get_question(instruct=True)
     
     messages = [
-      {"role": "system", "content": "If you ever write code, make sure it is enclosed in triple backticks."},
       create_question_message(question)
     ]
 

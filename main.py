@@ -13,7 +13,7 @@ def request_prompt():
   return prompt
 
 def run():
-  prompt = ""
+  prompt = ' '.join(sys.argv[1:])
   while prompt.strip() == "":
     prompt = request_prompt()
 

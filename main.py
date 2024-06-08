@@ -6,6 +6,7 @@ client = OpenAI()
 from rich.console import Console
 from rich.markdown import Markdown
 
+MODEL = "gpt-3.5-turbo"
 MESSAGE_HISTORY_LIMIT = 10
 
 def get_question(instruct = False):
@@ -30,7 +31,7 @@ def get_answer(messages: list[str]) -> str:
     messages = messages[-MESSAGE_HISTORY_LIMIT:]
 
   completion = client.chat.completions.create(
-    model="gpt-3.5-turbo",
+    model=MODEL,
     messages=[get_system_message()] + messages
   )
   answer_message = completion.choices[0].message

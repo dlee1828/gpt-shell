@@ -1,5 +1,7 @@
 ## Usage
 
+To use this, you need to have the `OPENAI_API_KEY` environment variable set to your api key.
+
 To quickly ask something:
 ```
 ask [prompt]

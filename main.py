@@ -14,7 +14,7 @@ def get_question(instruct = False):
   while prompt.strip() == "":
     if instruct: 
       print("-----")
-      print("Enter text, then press Enter and Ctrl-D to send. Send \"exit\" to end the conversation.") 
+      print("Enter text, then press Enter and Ctrl-D to send. Send \"exit\" to exit.") 
       print("-----")
     prompt = sys.stdin.read()
 
@@ -46,6 +46,8 @@ def conversation():
     question = ' '.join(sys.argv[1:])
     if question.strip() == "":
       question = get_question(instruct=True)
+    else:
+      print("-----")
     
     messages = [
       create_question_message(question)

@@ -6,7 +6,7 @@ client = OpenAI()
 from rich.console import Console
 from rich.markdown import Markdown
 
-MODEL = "gpt-3.5-turbo"
+MODEL = "gpt-4o-mini"
 MESSAGE_HISTORY_LIMIT = 10
 
 def get_question(instruct = False):

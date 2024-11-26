@@ -13,3 +13,6 @@ To enter a multi-line prompt which can have special characters:
 ```
 ask [press enter]
 ```
+Use the end-of-file signal to submit a multi-line prompt.
+
+Send "exit" to exit.
